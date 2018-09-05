@@ -1,19 +1,18 @@
-class Libuuid < Formula
-  desc "Generate UUID thingies"
-  homepage "https://sourceforge.net/projects/libuuid/"
-  url "http://sourceforge.net/projects/libuuid/files/libuuid-1.0.3.tar.gz"
-  sha256 "46af3275291091009ad7f1b899de3d0cea0252737550e7919d17237997db5644"
+class Dontpanic < Formula
+  desc "libdontpanic - used for testing Alien::Base"
+  homepage "https://alienfile.org/dontpanic/"
+  url "https://github.com/Perl5-Alien/dontpanic/archive/1.02.tar.gz"
+  sha256 "d6f7603c0bf0d3994631bdeab59d38fa7ce5eccf53be04047dd1e83b312a7b5a"
 
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
-    system "make"
     system "make", "install" # if this fails, try separate make/make install steps
   end
 
   test do
-    system "true"
+    system "dontpanic"
   end
 end
